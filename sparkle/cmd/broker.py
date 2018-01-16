@@ -11,7 +11,7 @@ LOG = logging.getLogger(__name__)
 @click.option('--pub-port', '-p', type=int)
 @click.option('--sub-port', '-s', type=int)
 @click.pass_context
-def broker(ctx, pub_port, sub_port):
+def command(ctx, pub_port, sub_port):
     app = ctx.obj
 
     pub_port = pub_port or app.config.get('broker_pub_port',

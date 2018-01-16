@@ -43,4 +43,4 @@ def dumpconfig(ctx):
 
 
 for command in MGR.extensions:
-    cli.add_command(command.plugin)
+    cli.add_command(command.plugin, name=command.name)

@@ -11,6 +11,8 @@ class Client():
     def __init__(self, broker_pub_uri=None, broker_sub_uri=None):
         self.broker_pub_uri = broker_pub_uri
         self.broker_sub_uri = broker_sub_uri
+        self.pub = None
+        self.sub = None
 
         self.init_zmq()
 
@@ -47,3 +49,12 @@ class Client():
     def subscribe(self, subscription):
         LOG.debug('subscribing to %r', subscription)
         self.sub.subscribe(subscription)
+
+    def term(self):
+        if self.pub:
+            self.pub.close()
+
+        if self.sub:
+            self.sub.close()
+
+        self.ctx.term()

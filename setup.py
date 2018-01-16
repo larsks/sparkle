@@ -12,9 +12,11 @@ setup(
             'sparkle = sparkle.main:cli',
         ],
         'sparkle.cmd': [
-            'broker = sparkle.cmd.broker:broker',
-            'button = sparkle.cmd.button:button',
-            'monitor = sparkle.cmd.monitor:monitor',
+            'broker = sparkle.cmd.broker:command',
+            'button = sparkle.cmd.button:command',
+            'monitor = sparkle.cmd.monitor:command',
+            'send-message = sparkle.cmd.send_message:command',
+            'pipe = sparkle.cmd.pipe:command',
         ]
     }
 )

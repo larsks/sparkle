@@ -12,7 +12,7 @@ LOG = logging.getLogger(__name__)
 @click.option('--broker-uri', '-b', type=int)
 @click.option('--subscribe', '-s', 'subscriptions', multiple=True)
 @click.pass_context
-def monitor(ctx, broker_uri, subscriptions):
+def command(ctx, broker_uri, subscriptions):
     app = ctx.obj
 
     if not subscriptions:

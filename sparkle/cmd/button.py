@@ -61,8 +61,11 @@ class ButtonHandler(threading.Thread):
 @click.option('--active-low', '-L', 'active_high',
               flag_value=False)
 @click.pass_context
-def button(ctx, broker_uri, name, pin, pull, active_high):
+def command(ctx, broker_uri, name, pin, pull, active_high):
     app = ctx.obj
+
+    LOG.debug('button on pin %d active_high %s pull %d',
+              pin, active_high, pull)
 
     broker_uri = broker_uri or app.config.get('broker_sub_uri',
                                               defaults.broker_sub_uri)
